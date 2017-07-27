@@ -8,15 +8,26 @@
 
         <link rel="stylesheet" type="text/css" href="css/index.css">
 
+	<!-- OnsenUI references -->
 	<link rel="stylesheet" href="css/onsenui.css">
 	<link rel="stylesheet" href="css/onsen-css-components.min.css">
 	<script src="js/onsenui.min.js"></script>
-	
+<!-- -->
+
+
+
 	<!-- Cordova references -->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+	   
+
+
+
+<!-- -->
+
 
 	<title>My Quiz</title>
+
 </head>
 <body>
 
@@ -34,61 +45,190 @@
 <ons-icon icon="md-android" size="60px" style="color: #A5C83A"></ons-icon>
 </p>
 
-<p style="text-align: center">	
-<ons-button id="push-button">Enter</ons-button>
-  </p>
-</ons-template>
-
-<!-- -->
-
-<!-- Profile page -->
-<ons-template id="profile.html">
-  <ons-page id="Profile">
-    <ons-toolbar>
-      <div class="left"><ons-back-button>Back</ons-back-button></div>
-      <div class="center"></div>
-    </ons-toolbar>
 
 <!-- User input Surname and Given Name -->
 	<div style="text-align: center; margin-top: 30px;">
     <p>
-      <ons-input id="surname" modifier="underbar" placeholder="Surname" float></ons-input>
+      <ons-input id="musername" modifier="underbar" placeholder="UserName" float></ons-input>
     </p>
     <p>
-      <ons-input id="given" modifier="underbar" type="given" placeholder="Given Name" float></ons-input>
+      <ons-input id="mpassword" modifier="underbar" type="Password" placeholder="Password" float></ons-input>
     </p>
 
-
- <h3>Age:</h3>
-  <ons-select id="choose-sel" onchange="editSelects(event)">
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-  </ons-select>
-
-
-	<p style="margin-top: 30px;">
-      <ons-button onclick="enter()">Proceed</ons-button>
-    	</p>
+ <div style="text-align: center; margin-top: 30px;">
+<ons-button id="profile-button">Register</ons-button>
 </div>
+
+<div style="text-align: center; margin-top: 30px;">
+<ons-button id="push-button">Enter</ons-button>
+</div>
+</ons-page>
 </ons-template>
 
 <!-- -->
 
-      </ons-page>
+<!-- Profile Page -->
+
+<ons-template id="profile.html">
+  <ons-page id="Profile">
+    <ons-toolbar>
+      <div class="left"><ons-back-button>Back</ons-back-button>	</div>
+      <div class="center"></div>
+    </ons-toolbar>
+
+<!-- Profile -->
+
+<form class="profile">
+
+<div style="text-align: center; margin-top: 30px;">
+
+	<p class="name"> 
+        <label for="username"><b>Username: </b></label> 
+        <input type="text" name="username" id="username" />     	</p> 
+   
+    <p class="password"> 
+	  <label for="password"><b>Password: </b></label> 
+        <input type="text" name="password" id="password" /> 
+    </p> 
+
+
+<h3>Age:</h3>
+  <ons-select id="choose-sel" onchange="editSelects(event)"><option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+  </ons-select><br><br>
+
+</div>
+
+<div style="text-align: center; margin-top: 30px;">
+<ons-button id ="register-button">Submit</ons-button>
+</div>
+</form>
+</ons-page>
+</ons-template>
+
+
+<!-- -->
+
+
+
+
+
+<!-- -->
+
+
+<!-- Topic page -->
+
+<ons-template id="topic.html">
+  <ons-page id="Topic">
+    <ons-toolbar>
+      <div class="left"><ons-back-button>Back</ons-back-button>	</div>
+      <div class="center"></div>
+    </ons-toolbar>
+
+<!-- topics -->
+	<div style="text-align: center; margin-top: 50px;">
+      <ons-button id="cquest-button">Cordova</ons-button>
+
+	<p style="margin-top: 50px;">
+	 <ons-button id="xam-button">Xamarin</ons-button>
+    	</p>
+
+</div>
+</ons-page>
+</ons-template>
+
+
+<!-- Cordova Question page -->
+
+<ons-template id="cquest.html">
+  <ons-page id="Cquest">
+    <ons-toolbar>
+      <div class="center"><b>Cordova</b></div>
+    </ons-toolbar>
+
+<!-- Questions -->
+<div id ="qContainer">
+
+	<header>
+	<h1> Cordova Quiz</h1>
+	<p><b>This quiz test your knowledge on Cordova!</b></p>
+	</header>
+
+	<section>
+	<form name = "quizForm">
+
+	<h3>1) What is Cordova?</h3>
+
+	<input type="radio" name="c1" value="a" id="c1a">a) Fruit<br>
+
+	<input type="radio" name="c1" value="b" id="c1b">b) Framework<br>
+
+	<input type="radio" name="c1" value="c" id="c1c">c) Car<br>
+
+	<input type="radio" name="c1" value="d" id="c1d">d) CPU<br>
+
+<h3>2) What is the workflow that Cordova provides?</h3>
+
+	<input type="radio" name="c2" value="a" id="c2a">a) Cross-platform workflow<br>
+
+	<input type="radio" name="c2" value="b" id="c2b">b) Single-platform workflow<br>
+
+	<input type="radio" name="c2" value="c" id="c2c">c) Multi-platform workflow<br>
+
+	<input type="radio" name="c2" value="d" id="c2d">d) All of the above<br>
+
+<h3>3) What are the web technologies that Cordova uses?</h3>
+
+	<input type="radio" name="c3" value="a" id="c3a">a) HTML5<br>
+
+	<input type="radio" name="c3" value="b" id="c3b">b) CSS<br>
+
+	<input type="radio" name="c3" value="c" id="c3c">c) Javascript<br>
+
+	<input type="radio" name="c3" value="d" id="c3d">d) All of the above<br>
+
+
+<div style="text-align: center; margin-top: 30px;">
+
+<ons-button tappable OnClick="checkQ()">Check</ons-button>
+
+<ons-button id ="submit-button" style="margin-left: 20px;">Submit</ons-button>
+
+</div>
+
+</form>
+</section>
+</div>
+</ons-page>
+</ons-template>
+
+<!-- Result page -->
+
+<ons-template id="result.html">
+  <ons-page id="Result">
+    <ons-toolbar>
+            <div class="center">Result</div>
+    </ons-toolbar>
+
+
+
+<!-- Result -->
+
 	
+	<div id ="Marks">
+	<h2>Date: </h2><div id = "date"></div>	
+	<h2>Name: </h2><div id = "name"></div>
+	<h2>Score: </h2><div id ="Scores"></div>
 
+	<div style="text-align: center; margin-top: 30px;">
+	<ons-button OnClick="calAnswers()">View</ons-button>
+	<ons-button id ="return-button" style="margin-left: 20px;">Return</ons-button>
+	</div>
 
+	</div>
+
+</ons-page>
+</ons-template>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
