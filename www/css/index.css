@@ -20,11 +20,15 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+
+
+/**************************************************************/
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
+
+    background-color:#100fff;
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -44,10 +48,11 @@ body {
     text-transform:uppercase;
     width:100%;
 }
-
+/****************************************************************/
+/***************************************************************/
 /* Portrait layout (default) */
 .app {
-    background:url(../img/quizicon.png) no-repeat center top; /* 170px x 200px */
+    background:url('../img/Icon.png') no-repeat center top; /* 170px x 200px */
     position:absolute;             /* position in the center of the screen */
     left:50%;
     top:50%;
@@ -68,6 +73,8 @@ body {
                                       /* offset horizontal: half of image width and text area width */
     }
 }
+/***************************************************************/
+
 
 h1 {
     font-size:24px;
@@ -114,11 +121,22 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-#username, #password, textarea{ 
+.cust-icon
+{
+	height: 200;
+	width: 300;
+	background: url('../img/Icon.png');
+
+}
+
+
+
+
+#username, #password,#gender,textarea{ 
     padding: 9px; 
     border: solid 1px #E5E5E5; 
     outline: 0; 
-    font: normal 13px/100% Verdana, Tahoma, sans-serif; 
+    font: normal 10px/100% Verdana, Tahoma, sans-serif; 
     width: 200px; 
     background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)); 
     background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px); 
@@ -146,17 +164,61 @@ input:focus, textarea:focus {
     } 
 
 
+#choose-sel{
+
+	background-color: #0000;
+   	color: white;
+    	padding: 9px;
+	height: 30px; 
+
+
+	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)); 
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px); 
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+
+
+
+    }
+
+
+}
+
+
+ons-button{
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+ons-button:hover{
+ box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
 
 #qContainer{
 	width:80%;
 	background:#199fdb;
 	margin:20px auto;
 	padding:25px;
+	border-style: solid;
+    border-width: 10px;
+
 }
+
+
+#sContainer{
+	width:80%;
+	background:#18D61B;
+	margin:20px auto;
+	padding:25px;
+	border-style: solid;
+    border-width: 10px;
+
+}
+
 
 header{
 	text-align:center;
-	border-bottom:#fff dashed 4px;
+	border-bottom:#000000 dashed 4px;
 }
 
 section{
@@ -170,6 +232,7 @@ section{
 	background:#199fdb;
 	margin:20px auto;
 	padding:25px;
-
+	border-style: solid;
+    border-width: 10px;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.15) 8px 8px 8px; 
 }
