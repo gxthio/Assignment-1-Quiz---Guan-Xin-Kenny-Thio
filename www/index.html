@@ -6,7 +6,7 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+	
 
 	<!-- OnsenUI references -->
 	<link rel="stylesheet" href="css/onsenui.css">
@@ -18,31 +18,37 @@
 
 	<!-- Cordova references -->
         <script type="text/javascript" src="cordova.js"></script>
+
+	<!-- Javascript reference-->
         <script type="text/javascript" src="js/index.js"></script>
 	   
-
+<!--CSS reference -->
+        <link rel="stylesheet" type="text/css" href="css/index.css">
 
 
 <!-- -->
 
-
-	<title>My Quiz</title>
+	<!-- Quiz title -->
+	<title>Quizstatic</title>
 
 </head>
 <body>
 
+
+	
 	<ons-navigator id="myNavigator" page="index.html"></ons-navigator>
 
 <!-- Main page -->
+<!-- The home page of the quiz app -->
 
 <ons-template id="index.html">
   <ons-page id="Main">
     <ons-toolbar>
-      <div class="center">My Quiz</div>
+      <div class="center">Quizstatic</div>
     </ons-toolbar>
 
 <p style="text-align: center">	
-<ons-icon icon="md-android" size="60px" style="color: #A5C83A"></ons-icon>
+<ons-icon class = "cust-icon"></ons-icon>
 </p>
 
 
@@ -62,18 +68,20 @@
 <div style="text-align: center; margin-top: 30px;">
 <ons-button id="push-button">Enter</ons-button>
 </div>
+
 </ons-page>
 </ons-template>
 
 <!-- -->
 
 <!-- Profile Page -->
+<!-- Page where user create an account to be able to use the app -->
 
 <ons-template id="profile.html">
   <ons-page id="Profile">
     <ons-toolbar>
       <div class="left"><ons-back-button>Back</ons-back-button>	</div>
-      <div class="center"></div>
+      <div class="center">Profile</div>
     </ons-toolbar>
 
 <!-- Profile -->
@@ -83,21 +91,23 @@
 <div style="text-align: center; margin-top: 30px;">
 
 	<p class="name"> 
-        <label for="username"><b>Username: </b></label> 
+        <label for="username"><b style="color:#FFFF00;">Username: </b></label> 
         <input type="text" name="username" id="username" />     	</p> 
    
     <p class="password"> 
-	  <label for="password"><b>Password: </b></label> 
+	  <label for="password"><b style="color:#FFFF00;">Password: </b></label> 
         <input type="text" name="password" id="password" /> 
     </p> 
 
 
-<h3>Age:</h3>
-  <ons-select id="choose-sel" onchange="editSelects(event)"><option value="16">16</option>
-<option value="17">17</option>
-<option value="18">18</option>
-  </ons-select><br><br>
 
+<div style="margin-right: 80px;">
+<label for="gender"><b style="color:#FFFF00;">Gender: </b></label>
+ <ons-select id="choose-sel" onchange="editSelects(event)"><option value="n/a">N/A</option>
+<option value="male">Male</option>
+<option value="female">Female</option>
+  </ons-select><br><br>
+</div>
 </div>
 
 <div style="text-align: center; margin-top: 30px;">
@@ -118,12 +128,14 @@
 
 
 <!-- Topic page -->
+<!-- Page that contains buttons that navigate to specific quiz questions -->
 
 <ons-template id="topic.html">
   <ons-page id="Topic">
     <ons-toolbar>
       <div class="left"><ons-back-button>Back</ons-back-button>	</div>
-      <div class="center"></div>
+      <div class="center">Topic</div>
+
     </ons-toolbar>
 
 <!-- topics -->
@@ -140,11 +152,12 @@
 
 
 <!-- Cordova Question page -->
+<!-- Page that display the question of the specific quiz topic -->
 
 <ons-template id="cquest.html">
   <ons-page id="Cquest">
     <ons-toolbar>
-      <div class="center"><b>Cordova</b></div>
+      <div class="center">Cordova</div>
     </ons-toolbar>
 
 <!-- Questions -->
@@ -203,7 +216,77 @@
 </ons-page>
 </ons-template>
 
+
+
+
+<!-- Xamarin Question page -->
+<!-- Page that display the question of the specific quiz topic -->
+
+<ons-template id="xquest.html">
+  <ons-page id="Xquest">
+    <ons-toolbar>
+      <div class="center">Xamarin</div>
+    </ons-toolbar>
+
+<!-- Questions -->
+<div id ="sContainer">
+
+	<header>
+	<h1> Xamarin Quiz</h1>
+	<p><b>This quiz test your knowledge on Xamarin!</b></p>
+	</header>
+
+	<section>
+	<form name = "quiz2Form">
+
+	<h3>1) What is Xamarin?</h3>
+
+	<input type="radio" name="c1" value="a" id="c1a">a) Fruit<br>
+
+	<input type="radio" name="c1" value="b" id="c1b">b) Framework<br>
+
+	<input type="radio" name="c1" value="c" id="c1c">c) Car<br>
+
+	<input type="radio" name="c1" value="d" id="c1d">d) CPU<br>
+
+<h3>2) What do you use Xamarin for?</h3>
+
+	<input type="radio" name="c2" value="a" id="c2a">a) Creating apps<br>
+
+	<input type="radio" name="c2" value="b" id="c2b">b) Nothing<br>
+
+	<input type="radio" name="c2" value="c" id="c2c">c) Developing Games<br>
+
+	<input type="radio" name="c2" value="d" id="c2d">d) All of the above<br>
+
+<h3>3) What are the web technologies that Xamarin uses?</h3>
+
+	<input type="radio" name="c3" value="a" id="c3a">a) HTML5<br>
+
+	<input type="radio" name="c3" value="b" id="c3b">b) CSS<br>
+
+	<input type="radio" name="c3" value="c" id="c3c">c) Javascript<br>
+
+	<input type="radio" name="c3" value="d" id="c3d">d) C#<br>
+
+
+<div style="text-align: center; margin-top: 30px;">
+
+<ons-button tappable OnClick="checkQ()">Check</ons-button>
+
+<ons-button id ="submit-button" style="margin-left: 20px;">Submit</ons-button>
+
+</div>
+
+</form>
+</section>
+</div>
+</ons-page>
+</ons-template>
+
+
 <!-- Result page -->
+<!-- Page to display the date of the quiz taken, the name of the user, the quiz topic and the result -->
 
 <ons-template id="result.html">
   <ons-page id="Result">
@@ -216,10 +299,14 @@
 <!-- Result -->
 
 	
-	<div id ="Marks">
-	<h2>Date: </h2><div id = "date"></div>	
-	<h2>Name: </h2><div id = "name"></div>
-	<h2>Score: </h2><div id ="Scores"></div>
+	<div id ="Marks" style="text-align: center; margin-top: 15px;">
+	<h2><i>Date: </i></h2><div id = "date"><p>Display current date</p></div>
+	
+	<h2><i>Quiz: </i></h2><div id = "type"><p>Display the topic of the quiz</p></div>
+	
+	<h2><i>Name: </i></h2><div id = "name"><p>Display the Username</p></div>
+
+	<h2><i>Score: </i></h2><div id ="Scores"><p>Display the quiz result</p></div>
 
 	<div style="text-align: center; margin-top: 30px;">
 	<ons-button OnClick="calAnswers()">View</ons-button>
