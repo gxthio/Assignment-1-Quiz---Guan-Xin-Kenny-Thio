@@ -4,6 +4,7 @@
 document.addEventListener('init', function(event) {
   var page = event.target;
 
+//***********************************************
 //Main page navigation to Topic page
 
   if (page.id === 'Main') {
@@ -14,7 +15,8 @@ document.addEventListener('init', function(event) {
     page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
 
   }
-
+//********************************************
+//********************************************
 //Main page navigation to Profile page
 
 if (page.id === 'Main') {
@@ -27,7 +29,15 @@ if (page.id === 'Main') {
   }
 
 
+if (page.id === 'Profile') {
+    page.querySelector('#register-button').onclick = function() {
+      document.querySelector('#myNavigator').pushPage('index.html', {data: {title: 'Main'}});
+    };
+  } 
+  
+//*********************************************
 
+//*********************************************
 //Topic page navigation to 1st quiz page
 
  if (page.id === 'Topic')
@@ -38,6 +48,16 @@ if (page.id === 'Main') {
     };
   } 
 
+//Topic page navigation to 2nd quiz page
+ if (page.id === 'Topic')
+{
+	page.querySelector('#xam-button').onclick = function() 
+	{
+      	document.querySelector('#myNavigator').pushPage('xquest.html', {data: {title: 'Xquest'}});
+    };
+  } 
+//*************************************************
+//************************************************
 //1st quiz page navigation to result page
 
 if (page.id === 'Cquest')
@@ -47,32 +67,41 @@ if (page.id === 'Cquest')
       	document.querySelector('#myNavigator').pushPage('result.html', {data: {title: 'Result'}});
     };
   } 
+//***************************************************
+//***************************************************
+//2nd quiz page navigation to result page
+if (page.id === 'Xquest')
+{
+	page.querySelector('#submit-button').onclick = function() 
+	{
+      	document.querySelector('#myNavigator').pushPage('result.html', {data: {title: 'Result'}});
+    };
+  } 
+//*******************************************************
+
+//********************************************************
+//Result page navigation to main/home page
+
+if (page.id === 'Result') {
+    page.querySelector('#return-button').onclick = function() {
+      document.querySelector('#myNavigator').pushPage('index.html', {data: {title: 'Main'}});
+    };
+  }
+
+//**********************************************************
+
 
 
 
 });
 /****************************************************************/
 
-
-
-/*
-//user profile
-var enter = function() {
-  var surname = document.getElementById('surname').value;
-  var given = document.getElementById('given').value;
-
-  if (surname  === ' ' || given === ' ') {
-    ons.notification.alert({message: 'User Input has not been given'});
-  }
-}
-*/
-
 /**************************************************/
 //these 2 functions creates the options for a dropdown box
 
 function editSelects(event) {
   document.getElementById('choose-sel').removeAttribute('modifier');
-  if (event.target.value == '17' || event.target.value == '18') {
+  if (event.target.value == 'male' || event.target.value == 'female') {
     document.getElementById('choose-sel').setAttribute('modifier', event.target.value);
   }
 }
@@ -84,7 +113,7 @@ function addOption(event) {
   text = '';
   document.getElementById('dynamic-sel').appendChild(option);
 }
-/***************************************************/
+/***************************************************************/
 
 /***************************************************************/
 //this function check each question and display a alert when the //user left out a question
@@ -100,28 +129,25 @@ function checkQ()
 //checks each question to see whether they are empty
 	//if any question is left empty, display a alert to notify
 	//the user
-	if(q1 === null || q1 === '')
-	{
-	    	ons.notification.alert({message: 'You missed a question'});
-			return false;
-	}
 
-	else if(q2 === null || q2 === '')
+		for(i=1;i<= total;i++)
 	{
-	    		ons.notification.alert({message: 'You missed a question'});
+		if(eval('q'+i)=== null || eval('q'+i)==='')
+		{
+			ons.notification.alert({message: 'You missed a question'});
 			return false;
-	}
 
-	else if(q3 === null || q3 === '')
-	{
-	    		ons.notification.alert({message: 'You missed a question'});
-			return false;
-	}
-  else
-  {
-//enables the button once all questions have been answered
-    document.getElementById('submit-button').disabled=false;
-  }
+		}
+	  	else
+ 		{
+
+		//enables the button once all questions have been 			//answered
+    		document.getElementById('submitbutton').disabled=false;
+  		}
+
+
+	} 
+
 
 	
   
@@ -143,42 +169,27 @@ function calAnswers(){
 
 	
 
-
-	if(q1 === null || q1.trim().length == 0)
+	for(i=1;i<= total;i++)
 	{
-	    	
+		if(eval('q'+i)=== null || eval('q'+i)==='')
+		{
 			return false;
-	}
 
-	else if(q2 === null || q1.trim().length == 0)
-	{
-	    		
-			return false;
-	}
-
-	else if(q3 === null || q1.trim().length === 0)
-	{
-	    	
-			return false;
-	}
- 
+		}
+	} 
 
 //set correct answer
 var answers = ["b","a","d"];
 
 //check correct answers for each question
 
-	if(q1 == answers[0])
+	for(j=1;j<=total;j++)
 {
-	score++;
-}
-	if(q2 == answers[1])
-{
-	score++;
-}
-	if(q3 == answers[2])
-{
-	score++;
+	if(eval('q'+i)===answers[j-1])
+	{
+		score++
+	}
+
 }
 
 //display result on screen 
