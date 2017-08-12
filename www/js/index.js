@@ -17,6 +17,8 @@
  * under the License.
  */
 
+ 
+
 /*************************************************************/
 //navigation code for the navigation toolbar
 
@@ -55,16 +57,6 @@ if (page.id === 'Profile') {
   
 //*********************************************
 //********************************************
-//Main page navigation to About page
-
-  if (page.id === 'Main') {
-    page.querySelector('#about-button').onclick = function() {
-      document.querySelector('#myNavigator').pushPage('about.html', {data: {title: 'About'}});
-    };
-  } else if (page.id === 'About') {
-    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
-
-  }
 
 
 
@@ -79,14 +71,6 @@ if (page.id === 'Profile') {
     };
   } 
 
-//Topic page navigation to 2nd quiz page
- if (page.id === 'Topic')
-{
-	page.querySelector('#xam-button').onclick = function() 
-	{
-      	document.querySelector('#myNavigator').pushPage('xquest.html', {data: {title: 'Xquest'}});
-    };
-  } 
 //*************************************************
 //************************************************
 //1st quiz page navigation to result page
@@ -100,14 +84,11 @@ if (page.id === 'Cquest')
   } 
 //***************************************************
 //***************************************************
-//2nd quiz page navigation to result page
-if (page.id === 'Xquest')
-{
-	page.querySelector('#submit-button').onclick = function() 
-	{
-      	document.querySelector('#myNavigator').pushPage('result.html', {data: {title: 'Result'}});
-    };
-  } 
+
+
+
+
+
 //*******************************************************
 
 //********************************************************
@@ -149,93 +130,30 @@ function addOption(event) {
 /***************************************************************/
 //JS Code reference
 
-/*Eduonix Learning Solutions 2015, Learn JavaScript By Building a Simple Quiz - Part 3, Video recording, Youtube, Viewed 28/07/2017, <https://www.youtube.com/watch?v=1ARSZup4eog>*/
+	function loadJSON(){
 
-//this function check each question and display a alert when the //user left out a question
-
-function checkQ()
-{
-  
-  //User Input
-	var q1 = document.forms["quizForm"]["c1"].value;
-	var q2 = document.forms["quizForm"]["c2"].value;
-	var q3 = document.forms["quizForm"]["c3"].value;
-
-//checks each question to see whether they are empty
-	//if any question is left empty, display a alert to notify
-	//the user
-
-		for(i=1;i<= total;i++)
-	{
-		if(eval('q'+i)=== null || eval('q'+i)==='')
-		{
-			ons.notification.alert({message: 'You missed a question'});
-			return false;
-
-		}
-	  	else
- 		{
-
-		//enables the button once all questions have been 			//answered
-    		document.getElementById('submitbutton').disabled=false;
-  		}
-
-
-	} 
-
-
+	var myq = JSON.parse(qlist);
 	
-  
-  
-}
-/***********************************************************/
+	document.getElementById("a1").innerHTML= myq[0].question;
 
-/**********************************************************/
-//this function calculates and display the score on screen
-
-function calAnswers(){
-	var total = 3;
-	var score = 0;
-
-	//User Input
-	var q1 = document.forms["quizForm"]["c1"].value;
-	var q2 = document.forms["quizForm"]["c2"].value;
-	var q3 = document.forms["quizForm"]["c3"].value;
-
-	
-
-	for(i=1;i<= total;i++)
-	{
-		if(eval('q'+i)=== null || eval('q'+i)==='')
-		{
-			return false;
-
-		}
-	} 
-
-//set correct answer
-var answers = ["b","a","d"];
-
-//check correct answers for each question
-
-	for(j=1;j<=total;j++)
-{
-	if(eval('q'+i)===answers[j-1])
-	{
-		score++
 	}
 
-}
-
-//display result on screen 
-if(score>=0)
-{
-document.getElementById("Scores").innerHTML = ('<h3>You scored <span>'+score+'</span> out of <span>'+total+'</span></h3>');
-}
 
 
-return false;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /************************************************************/
 
 app.initialize();
