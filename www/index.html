@@ -21,7 +21,7 @@
 <html>
 <head>
 
-	    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+	    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src * 'unsafe-inline'; media-src *; img-src * data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -34,17 +34,22 @@
 	<script src="js/onsenui.min.js"></script>
 <!-- -->
 
+	<!-- Jquery reference -->
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 
 
 	<!-- Cordova references -->
         <script type="text/javascript" src="cordova.js"></script>
 
 	<!-- Javascript reference-->
+		<script type="text/javascript" src="js/qhandler.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-	   
+	 
+		
+
+
 <!--CSS reference -->
         <link rel="stylesheet" type="text/css" href="css/index.css">
-
 
 <!-- -->
 
@@ -53,8 +58,6 @@
 
 </head>
 <body>
-
-
 	
 	<ons-navigator id="myNavigator" page="index.html"></ons-navigator>
 
@@ -110,35 +113,36 @@
     </ons-toolbar>
 
 <!-- Profile -->
+<div id = register>
 
-<form class="profile">
+<form action="register.php" method="post">
 
-<div style="text-align: center; margin-top: 30px;">
+	<label><b>Username:</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
 
-	<p class="name"> 
-        <label for="username"><b style="color:#FFFF00;">Username: </b></label> 
-        <input type="text" name="username" id="username" />     	</p> 
-   
-    <p class="password"> 
-	  <label for="password"><b style="color:#FFFF00;">Password: </b></label> 
-        <input type="text" name="password" id="password" /> 
-    </p> 
+    <label><b>Password:</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
 
+    <label><b>Repeat Password:</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
+<div style="text-align:left; margin-top: 20px;">
 
-<div style="margin-right: 80px;">
-<label for="gender"><b style="color:#FFFF00;">Gender: </b></label>
+<label for="gender"><b>Gender: </b></label>
  <ons-select id="choose-sel" onchange="editSelects(event)"><option value="n/a">N/A</option>
 <option value="male">Male</option>
 <option value="female">Female</option>
   </ons-select><br><br>
-</div>
+
 </div>
 
-<div style="text-align: center; margin-top: 30px;">
+<div class="clear"; style="text-align: center; margin-top: 30px;">
 <ons-button id ="register-button">Submit</ons-button>
+<ons-button id ="cancel-button">Cancel</ons-button>
+
 </div>
 </form>
+</div>
 </ons-page>
 </ons-template>
 
@@ -235,49 +239,22 @@
 
 	<section>
 	<form name = "quizForm">
-
-	<h3>1) What is Cordova?</h3>
-
-	<input type="radio" name="c1" value="a" id="c1a">a) Fruit<br>
-
-	<input type="radio" name="c1" value="b" id="c1b">b) Framework<br>
-
-	<input type="radio" name="c1" value="c" id="c1c">c) Car<br>
-
-	<input type="radio" name="c1" value="d" id="c1d">d) CPU<br>
-
-<h3>2) What is the workflow that Cordova provides?</h3>
-
-	<input type="radio" name="c2" value="a" id="c2a">a) Cross-platform workflow<br>
-
-	<input type="radio" name="c2" value="b" id="c2b">b) Single-platform workflow<br>
-
-	<input type="radio" name="c2" value="c" id="c2c">c) Multi-platform workflow<br>
-
-	<input type="radio" name="c2" value="d" id="c2d">d) All of the above<br>
-
-<h3>3) What are the web technologies that Cordova uses?</h3>
-
-	<input type="radio" name="c3" value="a" id="c3a">a) HTML5<br>
-
-	<input type="radio" name="c3" value="b" id="c3b">b) CSS<br>
-
-	<input type="radio" name="c3" value="c" id="c3c">c) Javascript<br>
-
-	<input type="radio" name="c3" value="d" id="c3d">d) All of the above<br>
-
+	
+	<div id ="quizlist"></div> <!-- the div where the json data will be append -->
 
 <div style="text-align: center; margin-top: 30px;">
 
-<ons-button tappable OnClick="checkQ()">Check</ons-button>
+<ons-button id="check">Check</ons-button>
 
 <ons-button id ="submit-button" style="margin-left: 20px;">Submit</ons-button>
 
 </div>
-
 </form>
 </section>
 </div>
+
+
+
 </ons-page>
 </ons-template>
 
@@ -337,7 +314,7 @@
 
 <div style="text-align: center; margin-top: 30px;">
 
-<ons-button tappable OnClick="checkQ()">Check</ons-button>
+<ons-button id="check">Check</ons-button>
 
 <ons-button id ="submit-button" style="margin-left: 20px;">Submit</ons-button>
 
