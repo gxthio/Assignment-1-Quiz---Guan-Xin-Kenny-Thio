@@ -77,6 +77,15 @@ if (page.id === 'Profile') {
 
 if (page.id === 'Cquest')
 {
+	
+	
+	$.getJSON("http://localhost:3000/question", function(data){
+				 $.each(data, function(i, field){
+					$("#quizlist").append(field.q + "<br>"); //append the data onto div id quizlist
+           });
+      
+    });
+	
 	page.querySelector('#submit-button').onclick = function() 
 	{
       	document.querySelector('#myNavigator').pushPage('result.html', {data: {title: 'Result'}});
@@ -129,28 +138,7 @@ function addOption(event) {
 
 /***************************************************************/
 //JS Code reference
-
-	function loadJSON(){
-
-	var myq = JSON.parse(qlist);
-	
-	document.getElementById("a1").innerHTML= myq[0].question;
-
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//function to apply  data from JSON file 
 
 
 
