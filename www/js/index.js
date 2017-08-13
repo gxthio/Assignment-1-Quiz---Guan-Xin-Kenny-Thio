@@ -25,6 +25,9 @@
 document.addEventListener('init', function(event) {
   var page = event.target;
 
+	var options = document.getElementsByName("c1");
+  
+  
 //***********************************************
 //Main page navigation to Topic page
 
@@ -77,13 +80,18 @@ if (page.id === 'Profile') {
 
 if (page.id === 'Cquest')
 {
-	
-	
+
 	$.getJSON("http://localhost:3000/question", function(data){
-				 $.each(data, function(i, field){
-					$("#quizlist").append(field.q + "<br>"); //append the data onto div id quizlist
-           });
-      
+			
+					var i = [1, 2, 3, 4];
+			
+					$("#quizlist").append(data[0].q + "<br>"); //append the data onto div id quizlist
+					
+					$.each( data, function( i, v ) {
+						$.each( data, function( i, x ) {
+							$("#c" + i ).append(x.choice + "<br>"); //append the data onto each radio button
+				});
+			 });	
     });
 	
 	page.querySelector('#submit-button').onclick = function() 
