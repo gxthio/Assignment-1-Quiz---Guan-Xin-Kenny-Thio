@@ -76,13 +76,16 @@
 
 
 <!-- User input Surname and Given Name -->
-	<div style="text-align: center; margin-top: 30px;">
+<form id = "loginform">
+	
+	<label><b>Please enter your Username:</b></label>
     <p>
-      <ons-input id="musername" modifier="underbar" placeholder="UserName" float></ons-input>
+      <input type = "text" id="musername" modifier="underbar" placeholder="UserName" float>
     </p>
 <div>
+	<label><b>Please enter your Password:</b></label>
     <p>
-      <ons-input id="mpassword" modifier="underbar" type="Password" placeholder="Password" float></ons-input>
+      <input type = "text" modifier="underbar" type="Password" placeholder="Password" float>
     </p>
 
  <div style="text-align: center; margin-top: 30px;">
@@ -96,7 +99,7 @@
 <div style="text-align: center; margin-top: 30px;">
 <ons-button id="about-button">About</ons-button>
 </div>
-
+</form>
 </ons-page>
 </ons-template>
 
@@ -115,16 +118,16 @@
 <!-- Profile -->
 <div id = register>
 
-<form action="register.php" method="post">
+<form>
 
 	<label><b>Username:</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
+    <input type="text" placeholder="Enter Username" name="username" "text-align: center; margin-top: 30px;"><br>
 
     <label><b>Password:</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="text" placeholder="Enter Password" name="psw" style="text-align"><br>
 
-    <label><b>Repeat Password:</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    <label><b>Email:</b></label>
+    <input type="text" placeholder="Enter Email" name="email" style="text-align"><br>
 
 <div style="text-align:left; margin-top: 20px;">
 
@@ -240,11 +243,8 @@
 	<section>
 	<form name = "quizForm">
 	
-	<h3 id ="quizlist"></h3> <!-- the div where the json data will be append -->
-	<input type="radio" name="c1" value="a" id="c1">
-	<input type="radio" name="c1" value="b" id="c2">
-	<input type="radio" name="c1" value="c" id="c3">
-	<input type="radio" name="c1" value="d" id="c4">
+	<h3 id ="question1"></h3> <!-- the div where the json data will be append -->
+	<div id ="c1"></div>
 	
 <div style="text-align: center; margin-top: 30px;">
 
