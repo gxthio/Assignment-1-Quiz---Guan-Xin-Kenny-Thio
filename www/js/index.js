@@ -82,16 +82,19 @@ if (page.id === 'Cquest')
 {
 
 	$.getJSON("http://localhost:3000/question", function(data){
-			
-					var i = [1, 2, 3, 4];
-			
-					$("#quizlist").append(data[0].q + "<br>"); //append the data onto div id quizlist
 					
-					$.each( data, function( i, v ) {
-						$.each( data, function( i, x ) {
-							$("#c" + i ).append(x.choice + "<br>"); //append the data onto each radio button
-				});
-			 });	
+		$("#question1").append(data[0].q + "<br>"); //append the data onto div id quizlist
+		//var ques = $("quizlist");			
+		var opt1 = $("#c1");	
+		
+		//each question have 4 choices
+		/*for(var h = 0; h < data[h].q.length; h++){
+			ques.append('<h3>'+ data[h].q + '</h3>');*/
+			
+		for(var i = 0; i < data[0].choice.length; i++){
+			opt1.append('<label><input type="radio" name="Qoptions" value="' + data[0].choice[i] + '" /> <b>' + data[0].choice[i] + '</b></label><br>');
+			}
+			
     });
 	
 	page.querySelector('#submit-button').onclick = function() 
