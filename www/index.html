@@ -76,7 +76,7 @@
 
 
 <!-- User input Surname and Given Name -->
-<form id = "loginform">
+<form id = "loginform" action="login.php" method="POST">
 	
 	<label><b>Please enter your Username:</b></label>
     <p>
@@ -85,7 +85,7 @@
 <div>
 	<label><b>Please enter your Password:</b></label>
     <p>
-      <input type = "text" modifier="underbar" type="Password" placeholder="Password" float>
+      <input type = "text" modifier="underbar" id="mpassword" placeholder="Password" float>
     </p>
 
  <div style="text-align: center; margin-top: 30px;">
@@ -118,7 +118,7 @@
 <!-- Profile -->
 <div id = register>
 
-<form>
+<form action="register.php" method='POST'>
 
 	<label><b>Username:</b></label>
     <input type="text" placeholder="Enter Username" name="username" "text-align: center; margin-top: 30px;"><br>
@@ -243,10 +243,11 @@
 	<section>
 	<form name = "quizForm">
 	
-	<h3 id ="question1"></h3> <!-- the div where the json data will be append -->
-	<div id ="c1"></div>
+	<!--<h3 id ="question1"></h3>--> <!-- the div where the json data will be append -->
+	<div id ="question"></div>
 	
-<div style="text-align: center; margin-top: 30px;">
+	
+<div style="text-align: center; margin-top: 50px;">
 
 <ons-button id="check">Check</ons-button>
 
