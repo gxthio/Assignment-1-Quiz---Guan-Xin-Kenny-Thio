@@ -22,6 +22,9 @@
 /*************************************************************/
 //navigation code for the navigation toolbar
 
+//global variable
+var qdata; //quizdata
+
 document.addEventListener('init', function(event) {
   var page = event.target;
 
@@ -80,22 +83,44 @@ if (page.id === 'Profile') {
 
 if (page.id === 'Cquest')
 {
-
+	var score = 0;
+	var counter = 0;
+	
+	//function for loading JSON data onto question page
 	$.getJSON("http://localhost:3000/question", function(data){
 					
-		$("#question1").append(data[0].q + "<br>"); //append the data onto div id quizlist
-		//var ques = $("quizlist");			
-		var opt1 = $("#c1");	
+		//$("#question1").append(data[0].q + "<br>"); 
 		
-		//each question have 4 choices
-		/*for(var h = 0; h < data[h].q.length; h++){
-			ques.append('<h3>'+ data[h].q + '</h3>');*/
+		var ques = $("#question");	//variable for div id "question"			
+		
+		//for loop for creating questions from JSON 
+		for(var h = 0; h < 2;){
+			ques.append('<h3>'+ data[h].q + '</h3>'); //append the data onto div id question
 			
-		for(var i = 0; i < data[0].choice.length; i++){
-			opt1.append('<label><input type="radio" name="Qoptions" value="' + data[0].choice[i] + '" /> <b>' + data[0].choice[i] + '</b></label><br>');
+		//each question have 4 choices	
+		for(var i = 0; i < data[h].choice.length; i++){
+			ques.append('<label><input type="radio" name="Qoptions" value="' + i + '" /> <b>' + data[h].choice[i] + '</b></label><br>');
+	
 			}
-			
+			h++;
+		}
     });
+	
+
+	function submitq()
+	{
+		$("input[type='radio']:checked").val();
+		
+		var $selectedText=$("input[type='radio']:checked").val();
+		
+		if($selectedText==quizQuestions[counter-1].answer) {
+						score +=1;
+					}
+		
+	}
+	
+	
+	
 	
 	page.querySelector('#submit-button').onclick = function() 
 	{
