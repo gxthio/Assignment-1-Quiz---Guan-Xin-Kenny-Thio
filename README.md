@@ -1,4 +1,4 @@
-# Assignment-1-Quiz---Guan-Xin-Kenny-Thio
+# Assignment-Quiz---Guan-Xin-Kenny-Thio
 ************************************************************************************
 /*
  *Copyright 2017 Guan Xin Kenny Thio
