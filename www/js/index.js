@@ -28,15 +28,35 @@ var qdata; //quizdata
 document.addEventListener('init', function(event) {
   var page = event.target;
 
-	var options = document.getElementsByName("c1");
+  var options = document.getElementsByName("c1");
   
+  //variables for getting local storage username and password
+  var getUser = localStorage.getItem("#username");
+  var getPass = localStorage.getItem("#psw");				
   
+			
 //***********************************************
 //Main page navigation to Topic page
 
   if (page.id === 'Main') {
+		  
     page.querySelector('#push-button').onclick = function() {
-      document.querySelector('#myNavigator').pushPage('topic.html', {data: {title: 'Topic'}});
+			
+		//variavles for login username and passwords values	
+		var muser = document.getElementById("musername").value;
+		var mpass = document.getElementById("mpassword").value;
+		
+		if(muser != getUser && mpass != getPass)
+		{	
+			  document.getElementById("lerror").innerHTML = "ERROR";
+		}
+		else
+		{	
+		
+			document.querySelector('#myNavigator').pushPage('topic.html', {data: {title: 'Topic'}});
+		}
+		
+		
     };
   } else if (page.id === 'Topic') {
     page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
@@ -51,13 +71,38 @@ if (page.id === 'Main') {
       document.querySelector('#myNavigator').pushPage('profile.html', {data: {title: 'Profile'}});
     };
   } else if (page.id === 'Profile') {
+	  
     page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
 
   }
 
 if (page.id === 'Profile') {
+
     page.querySelector('#register-button').onclick = function() {
-      document.querySelector('#myNavigator').pushPage('index.html', {data: {title: 'Main'}});
+	    
+		//variables for registration username and password value
+		var ruser = document.getElementById("rusername").value;
+		var rpass = document.getElementById("rpsw").value;
+		
+		//check whether local storage is undefined and if username and password inputs are empty
+		if(typeof(Storage)!="undefined" && ruser !== "" && rpass !== "")
+		{
+			  //store the data into local storage
+			  localStorage.setItem("#username", ruser); 
+			  localStorage.setItem("#psw", rpass);
+			  
+			  //go back to main page
+			  document.querySelector('#myNavigator').pushPage('index.html', {data: {title: 'Main'}});
+			  
+			  //reload the page
+			  window.location.reload();
+		}
+		else
+		{
+			//display error message if username & password fields are empty
+			document.getElementById("error").innerHTML = "ERROR";
+		}
+      
     };
   } 
   
@@ -93,6 +138,7 @@ if (page.id === 'Cquest')
 		
 		var ques = $("#question");	//variable for div id "question"			
 		
+		
 		//for loop for creating questions from JSON 
 		for(var h = 0; h < 2;){
 			ques.append('<h3>'+ data[h].q + '</h3>'); //append the data onto div id question
@@ -119,9 +165,7 @@ if (page.id === 'Cquest')
 		
 	}
 	
-	
-	
-	
+
 	page.querySelector('#submit-button').onclick = function() 
 	{
       	document.querySelector('#myNavigator').pushPage('result.html', {data: {title: 'Result'}});
