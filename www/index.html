@@ -76,18 +76,20 @@
 
 
 <!-- User input Surname and Given Name -->
-<form id = "loginform" action="login.php" method="POST">
+<form id = "loginform">
 	
 	<label><b>Please enter your Username:</b></label>
     <p>
       <input type = "text" id="musername" modifier="underbar" placeholder="UserName" float>
     </p>
-<div>
+
 	<label><b>Please enter your Password:</b></label>
     <p>
       <input type = "text" modifier="underbar" id="mpassword" placeholder="Password" float>
     </p>
 
+	<div id = "lerror"></div>
+	
  <div style="text-align: center; margin-top: 30px;">
 <ons-button id="profile-button">Register</ons-button>
 </div>
@@ -121,10 +123,10 @@
 <form action="register.php" method='POST'>
 
 	<label><b>Username:</b></label>
-    <input type="text" placeholder="Enter Username" name="username" "text-align: center; margin-top: 30px;"><br>
+    <input type="text" placeholder="Enter Username" name="username" id="rusername" "text-align: center; margin-top: 30px;"><br>
 
     <label><b>Password:</b></label>
-    <input type="text" placeholder="Enter Password" name="psw" style="text-align"><br>
+    <input type="text" placeholder="Enter Password" name="psw" id="rpsw" style="text-align"><br>
 
     <label><b>Email:</b></label>
     <input type="text" placeholder="Enter Email" name="email" style="text-align"><br>
@@ -138,6 +140,8 @@
   </ons-select><br><br>
 
 </div>
+
+<div id="error"></div>
 
 <div class="clear"; style="text-align: center; margin-top: 30px;">
 <ons-button id ="register-button">Submit</ons-button>
