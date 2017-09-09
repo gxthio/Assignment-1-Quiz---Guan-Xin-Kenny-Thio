@@ -24,6 +24,7 @@
 
 //global variable
 var qdata; //quizdata
+var score = 0; //quiz score
 
 document.addEventListener('init', function(event) {
   var page = event.target;
@@ -128,8 +129,8 @@ if (page.id === 'Profile') {
 
 if (page.id === 'Cquest')
 {
-	var score = 0;
-	var counter = 0;
+	
+	
 	
 	//function for loading JSON data onto question page
 	$.getJSON("http://localhost:3000/question", function(data){
@@ -145,29 +146,51 @@ if (page.id === 'Cquest')
 			
 		//each question have 4 choices	
 		for(var i = 0; i < data[h].choice.length; i++){
-			ques.append('<label><input type="radio" name="Qoptions" value="' + i + '" /> <b>' + data[h].choice[i] + '</b></label><br>');
-	
+			ques.append('<label><input type="radio" name="Qoptions'+ h +'" value="' + i + '" /> <b>' + data[h].choice[i] + '</b></label><br>');
+	        console.log(i);
 			}
 			h++;
 		}
     });
 	
-
-	function submitq()
-	{
-		$("input[type='radio']:checked").val();
-		
-		var $selectedText=$("input[type='radio']:checked").val();
-		
-		if($selectedText==quizQuestions[counter-1].answer) {
-						score +=1;
-					}
-		
-	}
 	
 
 	page.querySelector('#submit-button').onclick = function() 
 	{
+		$.getJSON("http://localhost:3000/question", function(ans){
+			
+		for(var h = 0; h< 2;h++){
+			
+		var answers = ans[h].answer;
+		
+		var selectedText = document.getElementsByName("Qoptions"+ h);
+		
+		
+		var limit = document.getElementsByName("Qoptions"+ h).length;
+		
+		
+		var selection = 0;
+		window.alert(selectedText);
+		
+		//check choice button for 1st questions is checked
+		for(var i=0;i<limit;i++)
+		{
+			if(selectedText[i].checked == true)
+				selection = i;
+		}
+		
+		//check answers for each questions
+		if(selectedText[selection].value == answers - 1) {
+						score +=1;
+					}
+					else
+					{
+						score += 0;
+					}
+		}
+		});		
+		
+		
       	document.querySelector('#myNavigator').pushPage('result.html', {data: {title: 'Result'}});
     };
   } 
@@ -184,8 +207,14 @@ if (page.id === 'Cquest')
 //Result page navigation to main/home page
 
 if (page.id === 'Result') {
+	
+	page.querySelector('#view-button').onclick = function() {
+	getscore();
+	};
     page.querySelector('#return-button').onclick = function() {
       document.querySelector('#myNavigator').pushPage('index.html', {data: {title: 'Main'}});
+	  //reload the page
+		window.location.reload();
     };
   }
 
@@ -196,7 +225,10 @@ if (page.id === 'Result') {
 
 });
 /****************************************************************/
-
+function getscore(){
+	
+	window.alert("score: " + score);		
+}
 /**************************************************/
 //these 2 functions creates the options for a dropdown box
 
