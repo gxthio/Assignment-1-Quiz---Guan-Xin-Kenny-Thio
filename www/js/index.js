@@ -23,12 +23,12 @@
 //navigation code for the navigation toolbar
 
 //global variable
-var qdata; //quizdata
+var url = "http://introtoapps.com/datastore.php?action=load&appid=214500003&objectid=questions";
 var score = 0; //quiz score
 
 document.addEventListener('init', function(event) {
   var page = event.target;
-
+  score = 0;
   var options = document.getElementsByName("c1");
   
   //variables for getting local storage username and password
@@ -132,62 +132,67 @@ if (page.id === 'Cquest')
 	
 	
 	
-	//function for loading JSON data onto question page
-	$.getJSON("http://localhost:3000/question", function(data){
-					
-		//$("#question1").append(data[0].q + "<br>"); 
+	
+		$.getJSON(url, function(data) {
 		
 		var ques = $("#question");	//variable for div id "question"			
 		
 		
 		//for loop for creating questions from JSON 
-		for(var h = 0; h < 2;){
+		for(var h = 0; h < 7;){
 			ques.append('<h3>'+ data[h].q + '</h3>'); //append the data onto div id question
 			
 		//each question have 4 choices	
 		for(var i = 0; i < data[h].choice.length; i++){
 			ques.append('<label><input type="radio" name="Qoptions'+ h +'" value="' + i + '" /> <b>' + data[h].choice[i] + '</b></label><br>');
-	        console.log(i);
+	        
 			}
 			h++;
 		}
-    });
+
+		});
 	
 	
 
 	page.querySelector('#submit-button').onclick = function() 
 	{
-		$.getJSON("http://localhost:3000/question", function(ans){
+		score = 0;
+		window.alert(score);
+		
+		$.getJSON(url, function(ans) {	
+		
+		
 			
-		for(var h = 0; h< 2;h++){
+		for(var h = 0; h < 7;h++){
 			
 		var answers = ans[h].answer;
 		
 		var selectedText = document.getElementsByName("Qoptions"+ h);
+			
+		var limit = document.getElementsByName("Qoptions"+ h).length;	
 		
+		var selection = -1;
 		
-		var limit = document.getElementsByName("Qoptions"+ h).length;
-		
-		
-		var selection = 0;
-		window.alert(selectedText);
-		
-		//check choice button for 1st questions is checked
-		for(var i=0;i<limit;i++)
+		//check choice button for all checked radio buttons
+		for(var i = 0;i < limit;i++)
 		{
 			if(selectedText[i].checked == true)
+			{
 				selection = i;
+			}
+		
 		}
 		
-		//check answers for each questions
-		if(selectedText[selection].value == answers - 1) {
+		//add score for all correct answers for each questions
+		if(selection > -1 && selectedText[selection].value == answers - 1) {;
 						score +=1;
 					}
-					else
+					else 
 					{
 						score += 0;
 					}
 		}
+		
 		});		
 		
 		
@@ -207,9 +212,10 @@ if (page.id === 'Cquest')
 //Result page navigation to main/home page
 
 if (page.id === 'Result') {
-	
+
 	page.querySelector('#view-button').onclick = function() {
-	getscore();
+	getCscore();
+	
 	};
     page.querySelector('#return-button').onclick = function() {
       document.querySelector('#myNavigator').pushPage('index.html', {data: {title: 'Main'}});
@@ -225,9 +231,12 @@ if (page.id === 'Result') {
 
 });
 /****************************************************************/
-function getscore(){
+function getCscore(){
 	
-	window.alert("score: " + score);		
+	window.alert("score: " + score);
+	document.getElementById("date").innerHTML = Date();
+	document.getElementById("Scores").innerHTML = (score+"/7");
+	
 }
 /**************************************************/
 //these 2 functions creates the options for a dropdown box
