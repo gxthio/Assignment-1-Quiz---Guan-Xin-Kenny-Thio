@@ -50,34 +50,47 @@ github project link: https://github.com/gxthio/Assignment-Quiz---Guan-Xin-Kenny-
 *************************************************************************************
 Project Folders
 ***************
-hooks,
-plugins,
-res,
+hooks
+
+plugins
+
+res
+
 www
 ______________
 
 www Folder
 *************
-css,
-img,
-js,
+css
+
+img
+
+js
+
 index.html
 _____________
 
 css Folder
 **************
 font_awesome
+
 ionicons
+
 material-design-iconic-font
+
 index.css
+
 onsen-css-components.min.css
+
 onsenui.css
 _________________
 
 js Folder
 *****************
-onsenui.min.js,
-jquery-3.2.1.min,
+onsenui.min.js
+
+jquery-3.2.1.min
+
 index.js
 _________________
 
@@ -94,10 +107,16 @@ _________________________
 Quiz app Layout
 ******************************
 The quiz app contains 8 pages:
-1 X Home Page,
-1 X Profile Page,
-1 X About Page,
-1 X Topic Page,
-3 X Question Page,
+
+1 X Home Page
+
+1 X Profile Page
+
+1 X About Page
+
+1 X Topic Page
+
+3 X Question Page
+
 1 X Result Page
 ****************************
