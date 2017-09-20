@@ -46,10 +46,11 @@ onsenui.min.js
 **************************************************************************************
 Quiz app Layout
 
-The quiz app contains 6 pages:
+The quiz app contains 8 pages:
 1 X Home Page
 1 X Profile Page
+1 X About Page
 1 X Topic Page
-2 X Question Page
+3 X Question Page
 1 X Result Page
 
