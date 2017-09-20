@@ -32,7 +32,7 @@
 ************************************************************************************
 Quiz System
 ***********************************************************************************
-github project link: https://github.com/gxthio/Assignment-1-Quiz---Guan-Xin-Kenny-Thio
+github project link: https://github.com/gxthio/Assignment-Quiz---Guan-Xin-Kenny-Thio
 *************************************************************************************
 Project files
 _______________
