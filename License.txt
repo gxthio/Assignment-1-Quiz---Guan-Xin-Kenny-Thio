@@ -189,3 +189,55 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+   
+   
+   
+   ____________________________________________________________________________________	
+   Icons created using Adobe Photoshop and Microsoft Paint for Assignment-Quiz System
+   ____________________________________________________________________________________	
+   	
+   bg01
+   Icon	
+
+   icon-36-ldpi
+   icon-36-ldpi
+   icon-72-hdpi
+   icon-96-xhdpi	
+
+   icon-57
+   icon-57-2x
+   icon-72
+   icon-72-2x
+ 
+   screen-hdpi-landscape
+   screen-ldpi-landscape
+   screen-mdpi-landscape
+   screen-xhdpi-landscape
+
+   screen-hdpi-portrait
+   screen-ldpi-portrait
+   screen-mdpi-portrait
+   screen-xhdpi-portrait
+
+   screen-ipad-landscape
+   screen-ipad-landscape-2x
+   screen-iphone-landscape
+   screen-iphone-landscape-2x
+
+   screen-ipad-portrait
+   screen-ipad-portrait-2x
+   screen-iphone-portrait
+   screen-iphone-portrait-2x
+   screen-iphone-portrait-568h-2x
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
