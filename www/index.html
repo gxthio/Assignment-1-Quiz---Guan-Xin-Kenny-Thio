@@ -87,21 +87,20 @@
     <p>
       <input type = "text" modifier="underbar" id="mpassword" placeholder="Password" float>
     </p>
-
-	<div id = "lerror"></div>
 	
- <div style="text-align: center; margin-top: 30px;">
+	<!-- display an error notification when user key in wrong username and password -->
+	<font color="red" style="text-align: center" size = "5"><b><div id = "lerror"></div></b></font>
+	
+<div style="text-align: center; margin-top: 30px;">
+<ons-button id="about-button">About</ons-button>
 <ons-button id="profile-button">Register</ons-button>
 </div>
 
 <div style="text-align: center; margin-top: 30px;">
-<ons-button id="push-button">Enter</ons-button>
+<ons-button id="push-button">Sign in</ons-button>
+<ons-button id="out-button">Sign Out</ons-button>
 </div>
 
-<div style="text-align: center; margin-top: 30px;">
-<ons-button id="about-button">About</ons-button>
-</div>
-</form>
 </ons-page>
 </ons-template>
 
@@ -129,19 +128,18 @@
     <input type="text" placeholder="Enter Password" name="psw" id="rpsw" style="text-align"><br>
 
     <label><b>Email:</b></label>
-    <input type="text" placeholder="Enter Email" name="email" style="text-align"><br>
+    <input type="text" placeholder="Enter Email" name="email" id="email" style="text-align"><br>
 
 <div style="text-align:left; margin-top: 20px;">
 
 <label for="gender"><b>Gender: </b></label>
- <ons-select id="choose-sel" onchange="editSelects(event)"><option value="n/a">N/A</option>
-<option value="male">Male</option>
+ <ons-select id="choose-sel" onchange="editSelects(event)"><option value="male">Male</option>
 <option value="female">Female</option>
   </ons-select><br><br>
 
 </div>
 
-<div id="error"></div>
+<font color="red" style="text-align: center" size = "5"><b><div id="error"></div></b></font>
 
 <div class="clear"; style="text-align: center; margin-top: 30px;">
 <ons-button id ="register-button">Submit</ons-button>
@@ -182,6 +180,11 @@
 	 <ons-button id="xam-button">Xamarin</ons-button>
     	</p>
 
+	<p style="margin-top: 50px;">
+	 <ons-button id="html-button">HTML</ons-button>
+    	</p>	
+		
+		
 </div>
 </ons-page>
 </ons-template>
@@ -225,9 +228,6 @@
 
 
 <!-- Cordova Question page -->
-<!-- HTML Code reference -->
-<!-- Eduonix Learning Solutions 2015, Learn JavaScript By Building a Simple Quiz - Part 3, Video recording, Youtube, Viewed 28/07/2017, <https://www.youtube.com/watch?v=kaj6XrJPR7k&t=392s> -->
-
 <!-- Page that display the question of the specific quiz topic -->
 
 <ons-template id="cquest.html">
@@ -252,11 +252,7 @@
 	
 	
 <div style="text-align: center; margin-top: 50px;">
-
-<ons-button id="check">Check</ons-button>
-
 <ons-button id ="submit-button" style="margin-left: 20px;">Submit</ons-button>
-
 </div>
 </form>
 </section>
@@ -280,6 +276,7 @@
     </ons-toolbar>
 
 <!-- Questions -->
+<!-- Questions -->
 <div id ="sContainer">
 
 	<header>
@@ -288,52 +285,67 @@
 	</header>
 
 	<section>
-	<form name = "quiz2Form">
-
-	<h3>1) What is Xamarin?</h3>
-
-	<input type="radio" name="c1" value="a" id="c1a">a) Fruit<br>
-
-	<input type="radio" name="c1" value="b" id="c1b">b) Framework<br>
-
-	<input type="radio" name="c1" value="c" id="c1c">c) Car<br>
-
-	<input type="radio" name="c1" value="d" id="c1d">d) CPU<br>
-
-<h3>2) What do you use Xamarin for?</h3>
-
-	<input type="radio" name="c2" value="a" id="c2a">a) Creating apps<br>
-
-	<input type="radio" name="c2" value="b" id="c2b">b) Nothing<br>
-
-	<input type="radio" name="c2" value="c" id="c2c">c) Developing Games<br>
-
-	<input type="radio" name="c2" value="d" id="c2d">d) All of the above<br>
-
-<h3>3) What are the web technologies that Xamarin uses?</h3>
-
-	<input type="radio" name="c3" value="a" id="c3a">a) HTML5<br>
-
-	<input type="radio" name="c3" value="b" id="c3b">b) CSS<br>
-
-	<input type="radio" name="c3" value="c" id="c3c">c) Javascript<br>
-
-	<input type="radio" name="c3" value="d" id="c3d">d) C#<br>
-
-
-<div style="text-align: center; margin-top: 30px;">
-
-<ons-button id="check">Check</ons-button>
-
+	<form name = "quizForm">
+	
+	<!--<h3 id ="question1"></h3>--> <!-- the div where the json data will be append -->
+	<div id ="question"></div>
+	
+	
+<div style="text-align: center; margin-top: 50px;">
 <ons-button id ="submit-button" style="margin-left: 20px;">Submit</ons-button>
-
 </div>
-
 </form>
 </section>
 </div>
 </ons-page>
 </ons-template>
+
+
+
+<!-- HTML Question page -->
+<!-- Page that display the question of the specific quiz topic -->
+
+<ons-template id="htmlquest.html">
+  <ons-page id="HTMLquest">
+    <ons-toolbar>
+      <div class="center">HTML</div>
+    </ons-toolbar>
+
+<!-- Questions -->
+<div id ="htmlContainer">
+
+	<header>
+	<h1> HTML Quiz</h1>
+	<p><b>This quiz test your knowledge on HTML!</b></p>
+	</header>
+
+	<section>
+	<form name = "quizForm">
+	
+	<!--<h3 id ="question1"></h3>--> <!-- the div where the json data will be append -->
+	<div id ="question"></div>
+	
+	
+<div style="text-align: center; margin-top: 50px;">
+<ons-button id ="submit-button" style="margin-left: 20px;">Submit</ons-button>
+</div>
+</form>
+</section>
+</div>
+
+
+
+</ons-page>
+</ons-template>
+
+
+
+
+
+
+
+
+
 
 
 <!-- Result page -->
@@ -351,17 +363,13 @@
 
 	
 	<div id ="Marks" style="text-align: center; margin-top: 15px;">
-	<h2><i>Date: </i></h2><div id = "date"></div>
-	
-	<h2><i>Quiz: </i></h2><div id = "type"></div>
-	
-	<h2><i>Name: </i></h2><div id = "name"></div>
+	<h2><i>Date: </i></h2><font size = "4"><b><div id = "date"></div></b></font>
 
-	<h2><i>Score: </i></h2><div id ="Scores"></div>
-
+	<h2><i>Result: </i></h2><font size = "5"><b><div id ="Scores"></div></b></font>
+	
 	<div style="text-align: center; margin-top: 30px;">
 	<ons-button id="view-button">View</ons-button>
-	<ons-button id ="return-button" style="margin-left: 20px;">Return</ons-button>
+	<ons-button id ="return-button" style="margin-left: 20px;">Go to Main</ons-button>
 	</div>
 
 	</div>
