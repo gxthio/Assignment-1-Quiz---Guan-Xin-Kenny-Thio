@@ -39,9 +39,23 @@ Quiz System
 ***********************************************************************************
 github project link: https://github.com/gxthio/Assignment-Quiz---Guan-Xin-Kenny-Thio
 *************************************************************************************
-Project Folder
-_______________
+Project Folders
+***************
+hooks
+plugins
+res
+www
+______________
+
+www Folder
+*************
+css
+img
+js
 index.html
+_____________
+
+css Folder
 index.js
 index.css
 onsen-css-components.min.css
