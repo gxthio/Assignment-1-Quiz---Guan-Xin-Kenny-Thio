@@ -29,12 +29,17 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+***********************************************************************************
+Profile
+Student Name: Guan Xin Kenny Thio
+Student ID: 214500003
+Unit Code: SIT 313
 ************************************************************************************
 Quiz System
 ***********************************************************************************
 github project link: https://github.com/gxthio/Assignment-Quiz---Guan-Xin-Kenny-Thio
 *************************************************************************************
-Project files
+Project Folder
 _______________
 index.html
 index.js
