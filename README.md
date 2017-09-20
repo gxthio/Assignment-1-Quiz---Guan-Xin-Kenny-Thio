@@ -31,11 +31,18 @@
  */
 ***********************************************************************************
 Profile
+********
 Student Name: Guan Xin Kenny Thio
 Student ID: 214500003
 Unit Code: SIT 313
 ************************************************************************************
 Quiz System
+************************************************************************
+The quiz app is build using Cordova and runs on the android emulator. 
+The icons for the app is created using adobe photoshop and Microsoft Paint.
+__________________________________________________________________________
+
+
 ***********************************************************************************
 github project link: https://github.com/gxthio/Assignment-Quiz---Guan-Xin-Kenny-Thio
 *************************************************************************************
@@ -67,12 +74,23 @@ _________________
 
 js Folder
 *****************
-onsenui.min.js
+onsenui.min.js,
+jquery-3.2.1.min,
 index.js
 _________________
-**************************************************************************************
-Quiz app Layout
 
+**************************************************************************************
+Quiz Directory Layout
+**********************
+The main folders containing html, javascript and css are located in the www folder.
+
+The icons are located in the res folder: res/icons/android
+The splash is also located in the res folder : res/screen/android
+
+_________________________
+
+Quiz app Layout
+******************************
 The quiz app contains 8 pages:
 1 X Home Page,
 1 X Profile Page,
@@ -80,4 +98,4 @@ The quiz app contains 8 pages:
 1 X Topic Page,
 3 X Question Page,
 1 X Result Page
-
+****************************
