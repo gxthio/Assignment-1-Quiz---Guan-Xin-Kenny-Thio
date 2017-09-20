@@ -100,6 +100,7 @@ Quiz Directory Layout
 The main folders containing html, javascript and css are located in the www folder.
 
 The icons are located in the res folder: res/icons/android
+
 The splash is also located in the res folder : res/screen/android
 
 _________________________
